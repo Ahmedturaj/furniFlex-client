@@ -1,15 +1,67 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../assets/F.png";
 import googleLogo from "../../../assets/icons8-google 1.svg";
 import { FaApple, FaRegEyeSlash } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 const SignUp = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const { SignUp, user } = useContext(AuthContext);
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const check = form.check.checked;
+    if (user.email === email) {
+      toast.error("this email is already exist");
+      return;
+    }
+    if (!check) {
+      toast.error("You need to agree to the Terms & Policy to sign up");
+      return;
+    }
+    if (password.length < 6) {
+      toast.error("You have to put 6 character In Your Password");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error(
+        "You have to use at least one Uppercase character In Your Password"
+      );
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      toast.error(
+        "You have to use at least one lowercase character In Your Password"
+      );
+      return;
+    } else if (!/[0-9]/.test(password)) {
+      toast.error(
+        "You have to use at least one numeric character In Your Password"
+      );
+      return;
+    }
+
+    const data = await SignUp(firstName, lastName, email, password);
+    if (data) {
+      toast.success("You have SignUp successfully");
+      navigate(location?.state ? location.state.from.pathname : "/");
+      e.target.reset();
+      form.reset();
+    }
+  };
+  if (user) {
+    navigate("/");
+  }
   return (
     <div className="flex items-center justify-center gap-14">
       <div className="card bg-base-200 pb-1">
-        <form className="card-body border">
+        <form onSubmit={handleSignUp} className="card-body border">
           {/* intro */}
           <div className="flex flex-col gap-4 items-center">
             <h2 className="text-center text-3xl font-bold">Welcome To</h2>
@@ -67,7 +119,7 @@ const SignUp = () => {
             </p>
           </div>
           <input
-            className="mt-5 p-2 bg-black text-white font-bold text-xl w-full text-center rounded-lg"
+            className="mt-5 p-2 cursor-pointer bg-black text-white font-bold text-xl w-full text-center rounded-lg"
             type="submit"
             value="SignUp"
           />
@@ -89,7 +141,7 @@ const SignUp = () => {
         </div>
         <p className="text-center mt-5">
           Have an account?
-          <Link to={"/LogIn"} className="text-[#0F3DDE] hover:underline">
+          <Link to={"/login"} className="text-[#0F3DDE] hover:underline">
             SignIn
           </Link>
         </p>

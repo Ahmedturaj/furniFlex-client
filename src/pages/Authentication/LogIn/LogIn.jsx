@@ -1,15 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaApple, FaRegEyeSlash } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import logo from "../../../assets/F.png";
 import googleLogo from "../../../assets/icons8-google 1.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 const LogIn = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
+  const { signIn, loggedUser, user } = useContext(AuthContext);
+  const handleLogIn = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    if (user.password !== password) {
+      toast.error("Invalid password");
+      return;
+    }
+    if (user.email !== email) {
+      toast.error("Invalid email");
+      return;
+    }
+    const user = await signIn(email, password);
+    if (user) {
+      form.reset();
+      toast.success("You have logged successfully");
+      navigate(location?.state ? location.state.from.pathname : "/");
+      e.target.reset();
+    }
+  };
+  if (loggedUser !== " ") {
+    navigate("/");
+  }
   return (
-    <div className="flex items-center justify-center gap-14">
-      <div className="card bg-base-200 pb-1">
-        <form className="card-body border">
+    <div className="flex items-center justify-center gap-14 w-full">
+      <div className="card bg-base-200 p-2 w-full mx-auto">
+        <form onSubmit={handleLogIn} className="card-body border">
           {/* intro */}
           <div className="flex flex-col gap-4 items-center">
             <h2 className="text-center text-3xl font-bold">Welcome To</h2>
@@ -19,17 +48,6 @@ const LogIn = () => {
             <p className="text-center">
               Signup for purchase your desire products
             </p>
-          </div>
-          {/* name */}
-          <div className="flex flex-col md:flex-row gap-4 mt-10">
-            <div className="input input-bordered flex flex-col">
-              <span className="text-xs">first name(Optional)</span>
-              <input type="text" name="firstName" />
-            </div>
-            <div className="input input-bordered flex flex-col">
-              <span className="text-xs"> last name(optional)</span>
-              <input type="text" name="lastName" />
-            </div>
           </div>
           {/* email */}
           <div className="input input-bordered w-full my-5 flex flex-col">
@@ -47,7 +65,7 @@ const LogIn = () => {
             </div>
             <div
               onClick={() => setShowPassword(!showPassword)}
-              className="relative -right-[490px] -top-12"
+              className="relative -right-[490px] cursor-pointer -top-12"
             >
               {showPassword ? (
                 <FiEye className="text-xl" />
@@ -55,21 +73,24 @@ const LogIn = () => {
                 <FaRegEyeSlash className="text-xl" />
               )}
             </div>
+            <p className="text-sm text-[#0F3DDE] flex items-end justify-end cursor-pointer hover:underline">
+              Forget password
+            </p>
           </div>
           {/* password end */}
           <div className="flex items-center gap-2">
             <input className="cursor-pointer" type="checkbox" name="check" />
             <p>
               I agree to the
-              <span className="hover:text-blue-500 underline text-base text-base-content">
+              <span className="hover:text-blue-500 cursor-pointer underline text-base text-base-content">
                 Terms & Policy
               </span>
             </p>
           </div>
           <input
-            className="mt-5 p-2 bg-black text-white font-bold text-xl w-full text-center rounded-lg"
+            className="mt-5 cursor-pointer p-2 bg-black text-white font-bold text-xl w-full text-center rounded-lg"
             type="submit"
-            value="SignUp"
+            value="SignIn"
           />
         </form>
         <div className="flex items-center justify-center gap-2">
@@ -94,7 +115,7 @@ const LogIn = () => {
           </Link>
         </p>
       </div>
-      <div>
+      <div className="w-full">
         <img
           className=""
           src="https://i.ibb.co/dpS7Rss/chris-lee-70l1t-DAI6r-M-unsplash-1.png"

@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/F.png";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
   const [isClick, setIsClick] = useState(false);
-
+  const { logOut, loggedUser } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut();
+  };
   const navLink = (
     <>
       <li>
@@ -89,8 +93,18 @@ const Navbar = () => {
                   "flex flex-col absolute right-9 top-14 p-2 rounded-md bg-gray-200"
                 }
               >
-                <Link to={"/login"}>LogIn</Link>
-                <Link to={"/signUp"}>SignUp</Link>
+                {loggedUser !== " " && (
+                  <button className="btn" onClick={handleLogOut}>
+                    LogOut
+                  </button>
+                )}
+
+                <div
+                  className={loggedUser === " " ? "flex flex-col" : "hidden"}
+                >
+                  <Link to={"/login"}>LogIn</Link>
+                  <Link to={"/signUp"}>SignUp</Link>{" "}
+                </div>
               </div>
             )}
           </div>

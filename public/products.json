@@ -1,0 +1,202 @@
+[
+  {
+    "_id": "1",
+    "productName": "Rocking Chair Deluxe",
+    "productImage": "https://i.ibb.co/1mMH0dt/Image-3.png",
+    "price": 120,
+    "discountPrice": 100,
+    "discountPercent": 20,
+    "productDescription": "Comfortable and stylish rocking chair for relaxation.",
+    "category": "rocking chair"
+  },
+  {
+    "_id": "2",
+    "productName": "Classic Side Chair",
+    "productImage": "https://i.ibb.co/nm2ZYK1/Image-4.png",
+    "price": 80,
+    "discountPrice": 70,
+    "discountPercent": 12,
+    "productDescription": "A perfect addition to your dining room.",
+    "category": "side chair"
+  },
+  {
+    "_id": "3",
+    "productName": "Lounge Comfort Chair",
+    "productImage": "https://i.ibb.co/2sPy80c/Image-5.png",
+    "price": 150,
+    "discountPrice": 130,
+    "discountPercent": 13,
+    "productDescription": "Relax in style with this luxurious lounge chair.",
+    "category": "lounge chair"
+  },
+  {
+    "_id": "4",
+    "productName": "Modern Rocking Chair",
+    "productImage": "https://i.ibb.co/KhRjGjX/c-4.webp",
+    "price": 200,
+    "discountPrice": 180,
+    "discountPercent": 10,
+    "productDescription": "A modern take on the classic rocking chair.",
+    "category": "rocking chair"
+  },
+  {
+    "_id": "5",
+    "productName": "Side Chair Elegance",
+    "productImage": "https://i.ibb.co/tMJWxfS/c-4.jpg",
+    "price": 90,
+    "discountPrice": 80,
+    "discountPercent": 11,
+    "productDescription": "Elegant side chair to complement your interior decor.",
+    "category": "side chair"
+  },
+  {
+    "_id": "6",
+    "productName": "Luxurious Lounge Chair",
+    "productImage": "https://i.ibb.co/vJ1LTC4/c5.jpg",
+    "price": 180,
+    "discountPrice": 160,
+    "discountPercent": 11,
+    "productDescription": "Experience the ultimate comfort in this lounge chair.",
+    "category": "lounge chair"
+  },
+  {
+    "_id": "7",
+    "productName": "Classic Rocking Chair",
+    "productImage": "https://i.ibb.co/SsRbJMg/c6.webp",
+    "price": 140,
+    "discountPrice": 125,
+    "discountPercent": 11,
+    "productDescription": "A classic wooden rocking chair for all generations.",
+    "category": "rocking chair"
+  },
+  {
+    "_id": "8",
+    "productName": "Stylish Side Chair",
+    "productImage": "https://i.ibb.co/sCQm8bS/c7.jpg",
+    "price": 85,
+    "discountPrice": 75,
+    "discountPercent": 12,
+    "productDescription": "A stylish side chair that fits into any room.",
+    "category": "side chair"
+  },
+  {
+    "_id": "9",
+    "productName": "Contemporary Lounge Chair",
+    "productImage": "https://i.ibb.co/r6W6btP/c8.jpg",
+    "price": 170,
+    "discountPrice": 150,
+    "discountPercent": 12,
+    "productDescription": "Modern and comfortable lounge chair for your living space.",
+    "category": "lounge chair"
+  },
+  {
+    "_id": "10",
+    "productName": "Vintage Side Chair",
+    "productImage": "https://i.ibb.co/2k8cLnd/c9.jpg",
+    "price": 95,
+    "discountPrice": 85,
+    "discountPercent": 10,
+    "productDescription": "A vintage-inspired side chair for a classic touch.",
+    "category": "side chair"
+  },
+  {
+    "_id": "11",
+    "productName": "Deluxe Rocking Chair",
+    "productImage": "https://i.ibb.co/WvQd12d/chair-1.jpg",
+    "price": 135,
+    "discountPrice": 110,
+    "discountPercent": 18,
+    "productDescription": "Comfortable rocking chair with a padded seat.",
+    "category": "rocking chair"
+  },
+  {
+    "_id": "12",
+    "productName": "Elegant Side Chair",
+    "productImage": "https://i.ibb.co/XsMHzf1/chair-2.jpg",
+    "price": 95,
+    "discountPrice": 85,
+    "discountPercent": 10,
+    "productDescription": "Elegant wooden side chair for dining or living room.",
+    "category": "side chair"
+  },
+  {
+    "_id": "13",
+    "productName": "Cozy Lounge Chair",
+    "productImage": "https://i.ibb.co/LknkXmG/chair-3.jpg",
+    "price": 165,
+    "discountPrice": 145,
+    "discountPercent": 12,
+    "productDescription": "Cozy lounge chair perfect for a reading nook.",
+    "category": "lounge chair"
+  },
+  {
+    "_id": "14",
+    "productName": "Classic Rocking Chair",
+    "productImage": "https://i.ibb.co/KhRjGjX/c-4.webp",
+    "price": 210,
+    "discountPrice": 185,
+    "discountPercent": 12,
+    "productDescription": "A timeless design rocking chair with a modern touch.",
+    "category": "rocking chair"
+  },
+  {
+    "_id": "15",
+    "productName": "Modern Side Chair",
+    "productImage": "https://i.ibb.co/tMJWxfS/c-4.jpg",
+    "price": 100,
+    "discountPrice": 90,
+    "discountPercent": 10,
+    "productDescription": "A sleek and modern side chair for minimalistic interiors.",
+    "category": "side chair"
+  },
+  {
+    "_id": "16",
+    "productName": "Relaxing Lounge Chair",
+    "productImage": "https://i.ibb.co/vJ1LTC4/c5.jpg",
+    "price": 190,
+    "discountPrice": 170,
+    "discountPercent": 10,
+    "productDescription": "A relaxing lounge chair for your home or office.",
+    "category": "lounge chair"
+  },
+  {
+    "_id": "17",
+    "productName": "Wooden Rocking Chair",
+    "productImage": "https://i.ibb.co/SsRbJMg/c6.webp",
+    "price": 160,
+    "discountPrice": 145,
+    "discountPercent": 9,
+    "productDescription": "Traditional wooden rocking chair for all ages.",
+    "category": "rocking chair"
+  },
+  {
+    "_id": "18",
+    "productName": "Side Chair with Cushion",
+    "productImage": "https://i.ibb.co/sCQm8bS/c7.jpg",
+    "price": 105,
+    "discountPrice": 95,
+    "discountPercent": 10,
+    "productDescription": "A side chair with a soft cushion for extra comfort.",
+    "category": "side chair"
+  },
+  {
+    "_id": "19",
+    "productName": "Premium Lounge Chair",
+    "productImage": "https://i.ibb.co/r6W6btP/c8.jpg",
+    "price": 180,
+    "discountPrice": 160,
+    "discountPercent": 11,
+    "productDescription": "A premium lounge chair for a luxurious feel.",
+    "category": "lounge chair"
+  },
+  {
+    "_id": "20",
+    "productName": "Side Chair with Armrest",
+    "productImage": "https://i.ibb.co/2k8cLnd/c9.jpg",
+    "price": 110,
+    "discountPrice": 100,
+    "discountPercent": 9,
+    "productDescription": "Side chair with armrest for added support.",
+    "category": "side chair"
+  }
+]

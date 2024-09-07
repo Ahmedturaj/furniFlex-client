@@ -5,28 +5,32 @@ import logo from "../../../assets/F.png";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
   const [isClick, setIsClick] = useState(false);
-  const { logOut, loggedUser } = useContext(AuthContext);
+  const { logOut, loggedUser, cartItem } = useContext(AuthContext);
+  console.log(cartItem);
   const handleLogOut = () => {
     logOut();
   };
   const navLink = (
     <>
       <li>
-        <NavLink is to={"/"}>
-          Home
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) => isActive && "bg-slate-200"}
+          to={"/"}
+        >
+          Products
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/products"}>Products</NavLink>
+        <a href="#">Categories</a>
       </li>
       <li>
-        <NavLink to={"/categories"}>Categories</NavLink>
+        <a href="#">Custom</a>
       </li>
       <li>
-        <NavLink to={"/custom"}>Custom</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/blog"}>Blog</NavLink>
+        <a href="#">Blog</a>
       </li>
     </>
   );
@@ -70,12 +74,18 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="flex items-center gap-3">
-            <div className="">
+            <Link to={"/addToCart"} className="cursor-pointer">
               <HiOutlineShoppingBag className="text-3xl relative" />
-              <div className="text-[10px] text-center bg-gray-200 rounded-full w-3 h-3 absolute top-10 right-[7rem]">
-                2
+              <div
+                className={
+                  loggedUser === " "
+                    ? "hidden"
+                    : "text-[10px] text-center bg-gray-200 rounded-full w-3 h-3 absolute top-10 right-[7rem]"
+                }
+              >
+                {cartItem.length}
               </div>
-            </div>
+            </Link>
             <div className="avatar cursor-pointer hover:ring rounded-full">
               <div
                 onClick={() => setIsClick(!isClick)}

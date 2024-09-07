@@ -55,9 +55,7 @@ const SignUp = () => {
       form.reset();
     }
   };
-  if (user) {
-    navigate("/");
-  }
+
   return (
     <div className="flex items-center justify-center gap-14">
       <div className="card bg-base-200 pb-1">
@@ -99,7 +97,7 @@ const SignUp = () => {
             </div>
             <div
               onClick={() => setShowPassword(!showPassword)}
-              className="relative -right-[490px] -top-12"
+              className="relative -right-[490px] cursor-pointer -top-12"
             >
               {showPassword ? (
                 <FiEye className="text-xl" />

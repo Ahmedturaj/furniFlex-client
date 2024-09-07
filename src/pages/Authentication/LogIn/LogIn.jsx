@@ -11,17 +11,23 @@ const LogIn = () => {
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, loggedUser, user } = useContext(AuthContext);
+  const users = user;
+
   const handleLogIn = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    if (user.password !== password) {
-      toast.error("Invalid password");
+    const signUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    console.log(signUser);
+    if (signUser.email !== email) {
+      toast.error("Invalid email");
       return;
     }
-    if (user.email !== email) {
-      toast.error("Invalid email");
+    if (signUser.password !== password) {
+      toast.error("Invalid password");
       return;
     }
     const user = await signIn(email, password);
